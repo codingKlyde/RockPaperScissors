@@ -1,15 +1,15 @@
 import random
 
 
-# FUNCTION: MAIN MENU  
+
+
+
+"""
+    Display the main menu
+"""
 def main_menu():
-    print("*********************************************************")
-    print("*             ROCK-PAPER-SCISSORS GAME                  *")
-    print("*********************************************************")
-    print("")
-
-
-    # Loop until correct input
+    # Accepted input are 1, 2, 3
+    # Numbers below 1 and above 3, Symbolic and character/s will be invalid input
     while True:
         try:
             print("1. SINGLE PLAYER")
@@ -26,33 +26,33 @@ def main_menu():
             elif menuChoice == 3:
                 exit_program()
             else:
-                print("\n")
-                print("m>> INVALID INPUT! Choose between 1 - 3 only!")
-                print("\n")
+                print("")
+                print("\t-- INVALID INPUT! Choose from 1 - 3 only --")
+                print("")
         except ValueError:
-            print("\n")
-            print(">> INVALID INPUT! Characters and symbols are not accepted")
-            print("\n")
+            print("")
+            print("\t-- INVALID INPUT! Characters and symbols are not accepted --")
+            print("")
 
 
 
-
-
-# FUNCTION: SINGLE PLAYER MODE
+"""
+    Display the single player mode
+"""
 def single_player():
-    print("\n\n")
+    print("\n")
     print("==============================")
     print("     SINGLE PLAYER MODE")
     print("==============================")
     print("")
 
 
-    p1 = player1_input()                    # Call the function and assign to 'p1'
-    p2 = player_bot()                       # Call the function and assign to 'p2'
+    p1 = player1_input()                    # Call and assign the returned input to 'p1'
+    p2 = player_bot()                       # Call and assign the returned input to 'p2'
     who_wins(p1, p2)                        # Call the function to determine the winner
 
 
-    print("Do you want to play again? [y/n]")
+    print("Play again? [y/n]")
     print("---------")
     optionChoice = (input("Choice: "))
 
@@ -62,30 +62,30 @@ def single_player():
         print("\n\n")
         main_menu()
     else:
-        print("\n")
-        print("> INVALID INPUT! y or n only")
-        print("\n")
+        print("")
+        print("\t--INVALID INPUT! y or n only --")
+        print("")
     print("\n\n")
 
 
 
-
-
-# FUNCTION: PASS AND PLAY MODE
+"""
+    Display the pass and play mode
+"""
 def pass_play():
-    print("\n\n")
+    print("\n")
     print("==============================")
     print("     PASS AND PLAY MODE")
     print("==============================")
     print("")
 
 
-    p1 = player1_input()                    # Call the function and assign to 'p1'
-    p2 = player2_input()                    # Call the function and assign to 'p2'
+    p1 = player1_input()                    # Call and assign the returned input to 'p1'
+    p2 = player2_input()                    # Call and assign the returned input to 'p2'
     who_wins(p1, p2)                        # Call the function to determine the winner
 
 
-    print("Do you want to play again? [y/n]")
+    print("Play again? [y/n]")
     print("---------")
     optionChoice = (input("Choice: "))
 
@@ -95,20 +95,20 @@ def pass_play():
         print("\n\n")
         main_menu()
     else:
-        print("\n")
-        print("> INVALID INPUT! y or n only")
-        print("\n")
+        print("")
+        print("\t-- INVALID INPUT! y or n only --")
+        print("")
     print("\n\n")
 
 
 
-
-
-# FUNCTION: PLAYER 01
+"""
+    Player 1
+"""
 def player1_input():
-    # Loop until input is either r-p-s
+    # Accepted input are r, p, s, R, P, or S
+    # Numbers, Symbolic and other character/s will be invalid input
     while True:
-        # Input
         print("Player 1's turn =")
         player1 = (input("\tR-P-S?:   "))
 
@@ -118,18 +118,18 @@ def player1_input():
             return player1
         else:
             print("")
-            print(">> INVALID INPUT! R-P-S only!")
+            print("\t-- INVALID INPUT! R-P-S only --")
             print("")
 
 
 
-
-
-# FUNCTION: PLAYER 02
+"""
+    Player 2
+"""
 def player2_input():
-    # Loop until input is either r-p-s
+    # Accepted input are r, p, s, R, P, or S
+    # Numbers, Symbolic and other character/s will be invalid input
     while True:
-        # Input
         print("\nPlayer 2's turn =")
         player2 = (input("\tR-P-S?:   "))
 
@@ -139,61 +139,60 @@ def player2_input():
             return player2
         else:
             print("")
-            print(">> INVALID INPUT! R-P-S only!")
+            print("\t-- INVALID INPUT! R-P-S only --")
             print("")
 
 
-
-
-
-# FUNCTION: PLAYER BOT
+"""
+    Player bot
+"""
 def player_bot():
-    # Player 2 random input
-    rpsRandomizer = ['r', 'p', 's']
+    randomRPS = ['r', 'p', 's', 'R', 'P', 'S']
 
-    player2 = random.choice(rpsRandomizer)
+    player2 = random.choice(randomRPS)       # Get random input inside the array
 
     print("\n[BOT] Player 2's turn =")
     print("\tR-P-S?:   ", player2)
+
+    player2 = player2.lower()                    # Convert uppercase char into lowercase char
 
     return player2
 
 
 
-
-
-# FUNCTION: R-P-S WINNER ALGORITHM
+"""
+    Rock-Paper-Scissors winner algorithm
+"""
 def who_wins(player1, player2):
-    print("\n")
+    print("")
 
 
-    # Determine who wins the match
     if player1 == player2:
-        print(">> DRAW!")
+        print("\t-- DRAW!")
     elif player1 == 'r':
         if player2 == 'p':
-            print(">> PLAYER 2 WINS!")
+            print("\t-- PLAYER 2 WINS!")
         elif player2 == 's':
-            print(">> PLAYER 1 WINS!")
+            print("\t-- PLAYER 1 WINS!")
     elif player1 == 'p':
         if player2 == 's':
-            print(">> PLAYER 2 WINS!")
+            print("\t-- PLAYER 2 WINS!")
         elif player2 == 'r':
-            print(">> PLAYER 1 WINS!")
+            print("\t-- PLAYER 1 WINS!")
     elif player1 == 's':
         if player2 == 'r':
-            print(">> PLAYER 2 WINS!")
+            print("\t-- PLAYER 2 WINS!")
         elif player2 == 'p':
-            print(">> PLAYER 1 WINS!")
-    print("\n")
+            print("\t-- PLAYER 1 WINS!")
+    print("")
 
 
 
-
-
-# FUNCTION: EXIT
+"""
+    Exit program
+"""
 def exit_program():
-    print("THANK YOU!")
+    print("Bye bye !!")
     exit()
 
 
@@ -201,7 +200,13 @@ def exit_program():
 
 
 """"" 
-    MAIN CODE 
+    PROGRAM WILL START HERE
 """""
-# Start program
+print("*********************************************************")
+print("*                                                       *")
+print("*               ROCK PAPER SCISSORS                     *")
+print("*                                                       *")
+print("*********************************************************")
+print("\n")
+
 main_menu()
