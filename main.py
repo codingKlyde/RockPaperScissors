@@ -5,7 +5,7 @@ import random
 
 
 """
-    Display the main menu
+    Main menu
 """
 def main_menu():
     # Accepted input are 1, 2, 3
@@ -37,7 +37,7 @@ def main_menu():
 
 
 """
-    Display the single player mode
+    Single player mode
 """
 def single_player():
     print("\n")
@@ -70,7 +70,7 @@ def single_player():
 
 
 """
-    Display the pass and play mode
+    Passs and play mode
 """
 def pass_play():
     print("\n")
@@ -149,12 +149,12 @@ def player2_input():
 def player_bot():
     randomRPS = ['r', 'p', 's', 'R', 'P', 'S']
 
-    player2 = random.choice(randomRPS)       # Get random input inside the array
+    player2 = random.choice(randomRPS)          # Get random input from the array
 
     print("\n[BOT] Player 2's turn =")
     print("\tR-P-S?:   ", player2)
 
-    player2 = player2.lower()                    # Convert uppercase char into lowercase char
+    player2 = player2.lower()                   # Convert uppercase char into lowercase char
 
     return player2
 
